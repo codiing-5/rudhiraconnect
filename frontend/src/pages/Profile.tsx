@@ -32,6 +32,7 @@ interface EligibilityLog {
 
 export const Profile: React.FC = () => {
   const { user } = useAuth();
+  const [profileUser, setProfileUser] = useState<any>(null);
   const [badges, setBadges] = useState<Badge[]>([]);
   const [donations, setDonations] = useState<DonationLog[]>([]);
   const [eligibilityChecks, setEligibilityChecks] = useState<EligibilityLog[]>([]);
@@ -43,6 +44,7 @@ export const Profile: React.FC = () => {
       try {
         setLoading(true);
         const res = await api.get('/users/profile');
+        setProfileUser(res.data.user);
         setBadges(res.data.badges);
         setDonations(res.data.donations);
         setEligibilityChecks(res.data.lastCheck ? [res.data.lastCheck] : []); // let's fetch history if any
@@ -121,24 +123,24 @@ export const Profile: React.FC = () => {
           <div className="w-full space-y-3.5 pt-4 text-xs font-semibold text-slate-600 border-t border-slate-100 text-left">
             <div className="flex gap-2.5 items-center">
               <Mail className="h-4 w-4 text-primary shrink-0" />
-              <span className="truncate">{user?.email}</span>
+              <span className="truncate">{profileUser?.email || user?.email}</span>
             </div>
             <div className="flex gap-2.5 items-center">
               <Phone className="h-4 w-4 text-primary shrink-0" />
-              <span>{user?.phone}</span>
+              <span>{profileUser?.phone || 'N/A'}</span>
             </div>
             <div className="flex gap-2.5 items-center">
               <Building className="h-4 w-4 text-primary shrink-0" />
-              <span className="truncate">{user?.college}</span>
+              <span className="truncate">{profileUser?.college || user?.college}</span>
             </div>
             <div className="flex gap-2.5 items-center">
               <MapPin className="h-4 w-4 text-primary shrink-0" />
-              <span>{user?.district}</span>
+              <span>{profileUser?.district || user?.district}</span>
             </div>
-            {user?.bloodGroup && (
+            {(profileUser?.bloodGroup || user?.bloodGroup) && (
               <div className="flex gap-2.5 items-center">
                 <Heart className="h-4 w-4 text-primary shrink-0" />
-                <span>Blood Group: <strong className="text-primary">{user?.bloodGroup}</strong></span>
+                <span>Blood Group: <strong className="text-primary">{profileUser?.bloodGroup || user?.bloodGroup}</strong></span>
               </div>
             )}
           </div>
