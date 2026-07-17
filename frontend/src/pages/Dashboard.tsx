@@ -177,7 +177,7 @@ export const Dashboard: React.FC = () => {
           <div>
             <p className="font-bold">Temporarily Deferred</p>
             <p className="text-slate-600 mt-1">
-              **Next Eligible Date:** {new Date(eligibility.nextEligibleDate!).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+              Next Eligible Date: {new Date(eligibility.nextEligibleDate!).toLocaleDateString('en-GB')}
             </p>
             <p className="text-slate-500 text-[10px] mt-0.5 leading-relaxed">
               **Reason:** {eligibility.reason || 'Safety deferral interval not met.'}
@@ -293,7 +293,7 @@ export const Dashboard: React.FC = () => {
                       </p>
                       <div className="flex gap-3 text-[10px] text-slate-400 font-semibold">
                         <span>Clinic: {cert.donation.bloodBank}</span>
-                        <span>Date: {new Date(cert.donation.donationDate).toLocaleDateString()}</span>
+                        <span>Date: {new Date(cert.donation.donationDate).toLocaleDateString('en-GB')}</span>
                       </div>
                     </div>
 
@@ -466,7 +466,7 @@ export const Dashboard: React.FC = () => {
                 <p className="text-xs leading-relaxed text-slate-600 max-w-md mx-auto">
                   for their noble act of voluntary blood donation completed on{' '}
                   <span className="font-bold text-slate-900">
-                    {new Date(selectedCert.donation.donationDate).toLocaleDateString()}
+                    {new Date(selectedCert.donation.donationDate).toLocaleDateString('en-GB')}
                   </span>{' '}
                   at{' '}
                   <span className="font-bold text-slate-900">{selectedCert.donation.bloodBank}</span>. 

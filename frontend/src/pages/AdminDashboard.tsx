@@ -267,7 +267,7 @@ export const AdminDashboard: React.FC = () => {
                         <MapPin className="h-3.5 w-3.5 text-primary" /> Venue: {item.bloodBank}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Calendar className="h-3.5 w-3.5 text-primary" /> Date: {new Date(item.donationDate).toLocaleDateString()}
+                        <Calendar className="h-3.5 w-3.5 text-primary" /> Date: {new Date(item.donationDate).toLocaleDateString('en-GB')}
                       </span>
                     </div>
                   </div>
@@ -420,7 +420,7 @@ export const AdminDashboard: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[10px] text-slate-400 font-semibold">
                         <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> {camp.location}</span>
-                        <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {new Date(camp.date).toLocaleDateString()}</span>
+                        <span className="flex items-center gap-1"><Calendar className="h-3 w-3" /> {new Date(camp.date).toLocaleDateString('en-GB')}</span>
                       </div>
                     </div>
 

@@ -409,7 +409,7 @@ export const EligibilityChecker: React.FC = () => {
                 <div className="space-y-2">
                   <h3 className="font-extrabold text-amber-800 text-sm">Temporary Deferral Applied</h3>
                   <p className="text-slate-600 font-bold leading-normal">
-                    Re-evaluation Eligible Date: {new Date(resultData.nextEligibleDate!).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
+                    Re-evaluation Eligible Date: {new Date(resultData.nextEligibleDate!).toLocaleDateString('en-GB')}
                   </p>
                   <p className="text-slate-500 text-[10px] leading-relaxed max-w-md mx-auto border-t border-slate-100 pt-3">
                     **Reason:** {resultData.reason || 'Safety deferral criteria not met. Please rest and re-test on the recommended date.'}

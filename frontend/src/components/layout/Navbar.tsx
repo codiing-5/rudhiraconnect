@@ -167,7 +167,7 @@ export const Navbar: React.FC = () => {
                               <div className="font-semibold text-slate-800 flex justify-between">
                                 <span>{notif.title}</span>
                                 <span className="text-[10px] text-slate-400 font-normal">
-                                  {new Date(notif.createdAt).toLocaleDateString()}
+                                  {new Date(notif.createdAt).toLocaleDateString('en-GB')}
                                 </span>
                               </div>
                               <p className="text-slate-600 mt-1 leading-relaxed">{notif.message}</p>

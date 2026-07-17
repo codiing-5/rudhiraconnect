@@ -181,7 +181,7 @@ export const Awareness: React.FC = () => {
                 </span>
                 <h2 className="text-xl font-bold text-slate-900 leading-snug">{selectedArticle.title}</h2>
                 <p className="text-[10px] text-slate-400">
-                  Published: {new Date(selectedArticle.publishedAt).toLocaleDateString()}
+                  Published: {new Date(selectedArticle.publishedAt).toLocaleDateString('en-GB')}
                 </p>
               </div>
 
@@ -240,7 +240,7 @@ export const Awareness: React.FC = () => {
                           </h3>
                         </div>
                         <div className="flex justify-between items-center text-[10px] text-slate-400 pt-2 border-t border-slate-50">
-                          <span>{new Date(art.publishedAt).toLocaleDateString()}</span>
+                          <span>{new Date(art.publishedAt).toLocaleDateString('en-GB')}</span>
                           <span className="text-primary font-bold hover:underline">Read Article &rarr;</span>
                         </div>
                       </div>

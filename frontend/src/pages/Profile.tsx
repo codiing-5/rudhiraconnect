@@ -213,7 +213,7 @@ export const Profile: React.FC = () => {
                       </p>
                       <div className="flex gap-3 text-[10px] text-slate-400 font-semibold">
                         <span>Clinic: {log.bloodBank}</span>
-                        <span>Date: {new Date(log.donationDate).toLocaleDateString()}</span>
+                        <span>Date: {new Date(log.donationDate).toLocaleDateString('en-GB')}</span>
                       </div>
                     </div>
                     {getStatusBadge(log.status)}
@@ -246,7 +246,7 @@ export const Profile: React.FC = () => {
                   >
                     <div className="flex justify-between items-center">
                       <span className="text-[10px] text-slate-400 font-bold">
-                        Screened: {new Date(check.createdAt).toLocaleDateString()}
+                        Screened: {new Date(check.createdAt).toLocaleDateString('en-GB')}
                       </span>
                       <span
                         className={`px-2 py-0.5 rounded text-[9px] font-bold ${
@@ -267,7 +267,7 @@ export const Profile: React.FC = () => {
 
                     {check.nextEligibleDate && check.result === 'TEMPORARY_DEFERRAL' && (
                       <p className="text-[9px] text-primary font-bold">
-                        Re-evaluate Date: {new Date(check.nextEligibleDate).toLocaleDateString()}
+                        Re-evaluate Date: {new Date(check.nextEligibleDate).toLocaleDateString('en-GB')}
                       </p>
                     )}
                   </div>
