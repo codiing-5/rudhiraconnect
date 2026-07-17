@@ -151,14 +151,14 @@ async function main() {
       },
       {
         title: 'Debunking Common Myths About Blood Donation',
-        content: `**Myth 1: Donating blood is extremely painful.**
-        *Fact:* You will feel a quick, brief pinch when the needle is inserted, but the actual donation process is relatively painless. The discomfort is minor compared to the life-saving impact.
+        content: `Myth 1: Donating blood is extremely painful.
+        Fact: You will feel a quick, brief pinch when the needle is inserted, but the actual donation process is relatively painless. The discomfort is minor compared to the life-saving impact.
 
-        **Myth 2: I am too old or weak to donate blood.**
-        *Fact:* Anyone between the ages of 18 and 65, weighing over 45-50 kg and in good health, can donate blood. Your body starts replenishing fluids within 24 to 48 hours.
+        Myth 2: I am too old or weak to donate blood.
+        Fact: Anyone between the ages of 18 and 65, weighing over 45-50 kg and in good health, can donate blood. Your body starts replenishing fluids within 24 to 48 hours.
 
-        **Myth 3: You can contract diseases, like HIV, from donating blood.**
-        *Fact:* A sterile, brand-new needle is used for every single donor and is discarded immediately after. It is physically impossible to contract blood-borne diseases from donating blood.`,
+        Myth 3: You can contract diseases, like HIV, from donating blood.
+        Fact: A sterile, brand-new needle is used for every single donor and is discarded immediately after. It is physically impossible to contract blood-borne diseases from donating blood.`,
         category: 'GUIDELINE',
         image: 'https://images.unsplash.com/photo-1579154204601-01588f351167?q=80&w=600&auto=format&fit=crop',
       },
