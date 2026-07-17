@@ -1,11 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  body {
-    @apply bg-slate-50 text-slate-800 antialiased font-poppins;
-  }
+@theme {
+  --color-primary: #DC2626;
+  --color-primary-dark: #991B1B;
+  --color-primary-light: #FEE2E2;
+  --font-poppins: "Poppins", sans-serif;
+  --radius-card: 12px;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 antialiased font-poppins;
 }
 
 /* Glassmorphism custom classes */
