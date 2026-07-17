@@ -16,7 +16,14 @@ export const Awareness: React.FC = () => {
   const { user } = useAuth();
   const [articles, setArticles] = useState<Article[]>([]);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+  const [imageError, setImageError] = useState(false);
+  const [listImageErrors, setListImageErrors] = useState<{ [key: string]: boolean }>({});
   const [loading, setLoading] = useState(true);
+
+  const handleSelectArticle = (art: Article | null) => {
+    setSelectedArticle(art);
+    setImageError(false);
+  };
 
   // Quiz States
   const [quizAnswers, setQuizAnswers] = useState<{ [key: string]: string }>({});
@@ -146,18 +153,26 @@ export const Awareness: React.FC = () => {
             /* View Article Details */
             <div className="bg-white border border-slate-100 rounded-card p-6 shadow-sm space-y-6 slide-up">
               <button
-                onClick={() => setSelectedArticle(null)}
+                onClick={() => handleSelectArticle(null)}
                 className="text-xs font-semibold text-primary hover:underline"
               >
                 &larr; Back to Articles
               </button>
 
-              {selectedArticle.image && (
+              {selectedArticle.image && !imageError ? (
                 <img
                   src={selectedArticle.image}
-                  alt={selectedArticle.title}
+                  alt="Article cover"
+                  onError={() => setImageError(true)}
                   className="w-full h-64 object-cover rounded-xl shadow-inner border border-slate-100"
                 />
+              ) : (
+                selectedArticle.image && (
+                  <div className="w-full h-64 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl flex flex-col items-center justify-center text-white space-y-2 shadow-inner border border-slate-100">
+                    <BookOpen className="h-10 w-10 text-white/90 animate-pulse" />
+                    <span className="text-[10px] font-bold tracking-wider uppercase opacity-75">RudhiraConnect Learning Module</span>
+                  </div>
+                )
               )}
 
               <div className="space-y-3">
@@ -198,14 +213,22 @@ export const Awareness: React.FC = () => {
                     <div
                       key={art.id}
                       className="bg-white border border-slate-100 hover:border-slate-200 rounded-card overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-all cursor-pointer"
-                      onClick={() => setSelectedArticle(art)}
+                      onClick={() => handleSelectArticle(art)}
                     >
-                      {art.image && (
+                      {art.image && !listImageErrors[art.id] ? (
                         <img
                           src={art.image}
-                          alt={art.title}
+                          alt="Article thumbnail"
+                          onError={() => setListImageErrors(prev => ({ ...prev, [art.id]: true }))}
                           className="h-40 w-full object-cover border-b border-slate-50"
                         />
+                      ) : (
+                        art.image && (
+                          <div className="h-40 w-full bg-gradient-to-r from-red-500 to-rose-600 flex flex-col items-center justify-center text-white space-y-1">
+                            <BookOpen className="h-8 w-8 text-white/95" />
+                            <span className="text-[9px] font-bold uppercase opacity-85">Learning Module</span>
+                          </div>
+                        )
                       )}
                       <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
